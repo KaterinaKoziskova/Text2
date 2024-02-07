@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Text</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="form-floating">
+    <select class="form-select" id="opravaSelect" aria-label="Floating label select example">
+      <option href="/reverze" value="1">Reverze řetězce</option>
+      <option href="/rozdelitText" value="2">Rozdělení na slova</option>
+      <option value="3">Počet slov</option>
+      <option value="4">Změna písmen</option>
+      <option value="5">Hledání textu</option>
+    </select>
+    <label for="opravaSelect">Pracujte s textem</label>
+    <hr>
+  </div>
+
+  <h3 class="mx-auto p-2">Reverze řetězce</h3>
+  <div id="reverze" class="form-floating mx-auto p-2" style="width: 1000px;">
+    <textarea class="form-control" placeholder="Leave a comment here" id="vstupniText" style="height: 100px"></textarea>
+    <label for="vstupniText">Napište text...</label>
+
+    <button type="button" class="btn btn-primary btn-sm" onclick="reverseText()">Zadat text</button>
+  </div>
+
+  <div id="vystupniText" class="form-floating mx-auto p-2" style="width: 900px;">
+    <textarea class="form-control" placeholder="Leave a comment here" id="reverseText" style="height: 100px"></textarea>
+    <label for="reverseText">Vygenerovaný text...</label>
+    <hr>
+  </div>
+  <hr>
+
+  <h3 class="mx-auto p-2">Rozdělení na písmena</h3>
+  <div id="rozdelitText" class="form-floating mx-auto p-2" style="width: 1000px;">
+    <textarea class="form-control" placeholder="Leave a comment here" id="vstupniText2" style="height: 100px"></textarea>
+    <label for="vstupniText2">Napište text...</label>
+    <button type="button" class="btn btn-primary btn-sm" onclick="splitText()">Zadat text</button>
+  </div>
+
+  <div id="vystupniText2" class="form-floating mx-auto p-2" style="width: 900px;">
+    <textarea class="form-control" placeholder="Leave a comment here" id="splitText" style="height: 100px"></textarea>
+    <label for="splitText">Vygenerovaný text...</label>
+    <hr>
+  </div>
+
+  <hr>
+
+  <h3 class="mx-auto p-2">Počet písmen</h3>
+  <div id="pocetVyskytu" class="form-floating mx-auto p-2" style="width: 1000px;">
+    <textarea class="form-control" placeholder="Leave a comment here" id="vstupniText3" style="height: 100px"></textarea>
+    <label for="vstupniText3">Napište text...</label>
+    <button type="button" class="btn btn-primary btn-sm" onclick="countOccurrences()">Zadat text</button>
+  </div>
+
+  <div id="vystupniText3" class="form-floating mx-auto p-2" style="width: 900px;">
+    <textarea class="form-control" placeholder="Leave a comment here" id="occurrencesCount" style="height: 100px"></textarea>
+    <label for="occurrencesCount">Vygenerovaný text...</label>
+    <hr>
+  </div>
+  <hr>
+
+  <h3 class="mx-auto p-2">Změna písmen</h3>
+  <div id="zmenaText" class="form-floating mx-auto p-2" style="width: 1000px;">
+    <textarea class="form-control" placeholder="Leave a comment here" id="vstupniText4" style="height: 100px"></textarea>
+    <label for="vstupniText4">Napište text...</label>
+    <button type="button" class="btn btn-primary btn-sm" onclick="changeLetters()">Zadat text</button>
+  </div>
+
+  <div id="vystupniText4" class="form-floating mx-auto p-2" style="width: 900px;">
+    <textarea class="form-control" placeholder="Leave a comment here" id="changeText" style="height: 100px"></textarea>
+    <label for="changeText">Vygenerovaný text...</label>
+    <hr>
+  </div>
+  <hr>
+
+  <script>
+    function reverseText() {
+      var vstupniText = document.getElementById('vstupniText').value;
+      var reverseText = vstupniText.split('').reverse().join('');
+      document.getElementById('reverseText').value = reverseText;
+    }
+
+    function splitText() {
+      var vstupniText2 = document.getElementById('vstupniText2').value;
+      var splitText = vstupniText2.split('').join(' ');
+      document.getElementById('splitText').value = splitText;
+    }
+
+    function countOccurrences() {
+      var vstupniText3 = document.getElementById('vstupniText3').value;
+      var occurrencesCount = vstupniText3.split('').length - 0;
+      document.getElementById('occurrencesCount').value = occurrencesCount;
+    }
+ function changeLetters() {
+      var vstupniText4 = document.getElementById('vstupniText4').value;
+      var changeText = replaceLetters(vstupniText4);
+      document.getElementById('changeText').value = changeText;
+    }
+
+    function replaceLetters(text) {
+      var replacedText = text.replace(/[a-zA-Z]/g, 'X');
+      return replacedText;
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
